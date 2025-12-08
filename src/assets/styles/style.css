@@ -9,3 +9,87 @@
 .test {
     color: red !important;
 }
+
+.ptxt {
+    font-size: 16px;
+    line-height: 26px;
+    color: #1F3F68;
+}
+
+.h1-title {
+    font-size: 64px;
+    color: #1F3F68;
+}
+
+.h2-contact {
+    font-weight: 500;
+    font-size: 44px;
+    text-align: center;
+}
+
+.h3-center {
+    font-size: 36px;
+    text-align: center;
+}
+
+.h4-sub {
+    font-size: 20px;
+    line-height: 30px;
+    color: #1F3F68;
+}
+
+.form-field {
+    border: 1px solid #356EAD;
+    box-sizing: border-box;
+    border-radius: 10px;
+    opacity: 0.4;
+    padding: 8px;
+    width: 100%;
+}
+
+.btn-submit {
+    background: linear-gradient(to right, #5A98D0, #8A4FD0);
+    box-shadow: 5px 20px 50px rgba(16, 112, 177, 0.2);
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 26px;
+    text-align: center;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    cursor: pointer;
+    padding: 10px 20px;
+    border: none;
+}
+
+.breadcrumbs {
+    background: linear-gradient(to bottom, #d9ecef, #8eb8bc);
+    padding: 0px;
+    border-radius: 8px;
+}
+
+.breadcrumbs ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+}
+
+.breadcrumbs li {
+    margin-right: 4px;
+}
+
+.breadcrumbs a {
+    display: block;
+    padding: 10px 20px;
+    background: linear-gradient(to bottom, #e7f5f7, #a2c8cc);
+    border-radius: 15px;
+    text-decoration: none;
+    color: #003040;
+    font-size: 14px;
+    box-shadow: 3px 0 4px rgba(0,0,0,0.3);
+}
+
+.breadcrumbs a:hover {
+    background: linear-gradient(to bottom, #f1fafb, #b9d8dc);
+}
