@@ -1,43 +1,89 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Главная страница</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IT Website</title>
     <link rel="stylesheet" href="assets/styles/style.css">
 </head>
 <body>
 
-<nav class="breadcrumbs">
-    <ul>
-        <img src="assets/img/logo.png" alt="Лого" style="height:40px; margin-right:10px;">
-        <li><a href="index.html">Главная</a></li>
-        <li><a href="contacts.html">Контакты</a></li>
-        <li><a href="#">Раз</a></li>
-        <li><a href="#">Два</a></li>
-    </ul>
-</nav>
+<header>
+    <div class="logo">IT WEBSITE</div>
 
-<h1 class="h1-title">Мой сайт</h1>
-<p class="ptxt">Это пример учебного сайта для лабораторной работы.</p>
+    <nav>
+        <ul>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Media</a></li>
+            <li><a href="#">Cases</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Contacts</a></li>
+        </ul>
+    </nav>
 
-<h3 class="h3-center">О проекте</h3>
-<h4 class="h4-sub">Основные цели проекта</h4>
-<p class="ptxt">Создание базового HTML шаблона с простыми элементами.</p>
+    <div class="header-contacts">
+        <img src="assets/img/phone.svg" alt="phone" /> +7 (111) 111 11 11
+        <img src="assets/img/phone.svg" alt="phone" /> +7 (111) 111 11 11
+        <img src="assets/img/mail.svg" alt="mail" /> itcompany@mail.com
+    </div>
+</header>
 
-<h3 class="h3-center">Подробнее</h3>
-<p class="ptxt">Изучаю работу с Git и HTML.</p>
+<main>
+    <section class="hero">
+        <div class="hero-left">
+            <h1>Development of <span>mobile applications</span> and <span>web services</span> of any complexity</h1>
+            <p>We create mobile applications for iOS, Android that transfer your business to mobile applications of your customers' devices</p>
 
-<hr>
+            <div class="consult-box">
+                <h3>Leave your contacts and we will call you back within 30 minutes</h3>
+                <form class="consult-form">
+                    <div class="form-field">
+                        <label>Phone number</label>
+                        <input type="text" placeholder="+7 (702) 517-11-98" />
+                    </div>
+
+                    <div class="form-field">
+                        <label>Full name</label>
+                        <input type="text" placeholder="Агадиль" />
+                    </div>
+
+                    <button type="button" class="btn-primary">Get consultation</button>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>
 
 <footer>
-    <h3 class="h3-center">Контакты</h3>
-    <p class="ptxt">Свяжитесь с нами при необходимости.</p>
-    <hr>
-    <ul>
-        <li>Телефон: +7 900 123-45-67</li>
-        <li>Email: example@mail.com</li>
-    </ul>
-    <p>Все права защищены.</p>
+    <h2>IT WEBSITE</h2>
+
+    <div class="footer-grid">
+        <div class="footer-item">
+            <img src="assets/img/phone.svg" alt="phone" />
+            <div class="footer-title">Contact nums</div>
+            +7 (778) 395 90 26
+        </div>
+
+        <div class="footer-item">
+            <img src="assets/img/mail.svg" alt="mail" />
+            <div class="footer-title">Post</div>
+            mail@mail.com
+        </div>
+
+        <div class="footer-item">
+            <img src="assets/img/geo.svg" alt="geo" />
+            <div class="footer-title">Adress</div>
+            City city, steet st. 90
+        </div>
+
+        <div class="footer-item">
+            <img src="assets/img/request.svg" alt="req" />
+            <div class="footer-title">Leave a request</div>
+            Leave a request
+        </div>
+    </div>
+
+    <div class="footer-bottom">We work throughout world</div>
 </footer>
 
 </body>
