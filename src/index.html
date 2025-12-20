@@ -9,9 +9,13 @@
 <body>
 
 <header>
+    <div class="menu-icon" id="burger">
+    <span class="burger-icon">≡</span>
+    </div>
+
     <div class="logo">IT WEBSITE</div>
 
-    <nav>
+    <nav class="desktop-nav">
         <ul>
             <li><a href="#">Services</a></li>
             <li><a href="#">Media</a></li>
@@ -22,15 +26,55 @@
     </nav>
 
     <div class="header-contacts">
-        <img src="assets/img/phone.svg" alt="phone" /> +7 (111) 111 11 11
-        <img src="assets/img/phone.svg" alt="phone" /> +7 (111) 111 11 11
-        <img src="assets/img/mail.svg" alt="mail" /> itcompany@mail.com
+        <div class="contact-item">
+            <img src="assets/img/phone.svg" alt="phone" /> +7 (111) 111 11 11
+        </div>
+        <div class="contact-item">
+            <img src="assets/img/phone.svg" alt="phone" /> +7 (111) 111 11 11
+        </div>
+        <div class="contact-item">
+            <img src="assets/img/mail.svg" alt="mail" /> itcompany@mail.com
+        </div>
     </div>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <div class="mobile-menu-logo">IT WEBSITE</div>
+            <div class="mobile-menu-close" id="closeMenu">
+                <span class="close-icon">×</span>
+            </div>
+        </div>
+
+        <nav class="mobile-nav">
+            <a href="#" class="mobile-nav-item">Services</a>
+            <a href="#" class="mobile-nav-item">Media</a>
+            <a href="#" class="mobile-nav-item">Cases</a>
+            <a href="#" class="mobile-nav-item">FAQ</a>
+            <a href="#" class="mobile-nav-item">Contacts</a>
+        </nav>
+
+        <div class="mobile-contacts">
+            <div class="mobile-contact">
+                <img src="assets/img/phone.svg" alt="phone" />
+                <span>+7 (111) 111 11 11</span>
+            </div>
+            <div class="mobile-contact">
+                <img src="assets/img/phone.svg" alt="phone" />
+                <span>+7 (111) 111 11 11</span>
+            </div>
+            <div class="mobile-contact">
+                <img src="assets/img/mail.svg" alt="mail" />
+                <span>itcompany@mail.com</span>
+            </div>
+        </div>
+    </div>
+
+
 </header>
 
 <main>
     <section class="hero">
-        <div class="hero-left">
+        <div class="hero-top">
             <h1>Development of <span>mobile <br>applications</span> and <span>web services</span> of any complexity</h1>
             <p>We create mobile applications for iOS, Android that transfer your business to mobile applications of your customers' devices</p>
 
@@ -49,6 +93,43 @@
 
                     <button type="button" class="btn-primary">Get consultation</button>
                 </form>
+            </div>
+        </div>
+    </section>
+    <section class="development-cycle">
+        <div class="development-cycle-container">
+            <h2>Full development cycle</h2>
+
+            <div class="cycle-content">
+                <div class="cycle-left">
+                    <p class="cycle-subtitle">We use proven technologies</p>
+
+                    <h3>Web</h3>
+                    <p>
+                        PHP <span>/</span> Javascript <span>/</span> Node.JS <span>/</span> Web Socket <span>/</span>
+                        Socket.io <span>/</span> Vue.js <span>/</span> Nuxt <span>/</span> MySQL <span>/</span> Laravel <span>/</span>
+                        GO lang <span>/</span> Django <span>/</span> Python
+                    </p>
+
+                    <h3>Mobile</h3>
+                    <p>
+                        Swift <span>/</span> Kotlin <span>/</span> Alamofire <span>/</span> Firebase <span>/</span>
+                        CoreData <span>/</span> Room <span>/</span> Realm <span>/</span> Coroutine <span>/</span>
+                        RxJava <span>/</span> RxSwift <span>/</span> Unit Test <span>/</span> Navigation
+                    </p>
+                </div>
+
+                <div class="cycle-right">
+                    <ul>
+                        <li><a href="#">iOS development</a></li>
+                        <li><a href="#">Android development</a></li>
+                        <li><a href="#">Web development</a></li>
+                        <li><a href="#">UI/UX design</a></li>
+                        <li><a href="#">Testing</a></li>
+                        <li><a href="#">Launch</a></li>
+                        <li><a href="#">IT consulting</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
@@ -87,4 +168,18 @@
 </footer>
 
 </body>
+<script>
+    const burger = document.getElementById('burger');
+    const closeMenu = document.getElementById('closeMenu');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    burger.addEventListener('click', () => {
+        mobileMenu.classList.add('active');
+    });
+
+    closeMenu.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+    });
+
+</script>
 </html>
