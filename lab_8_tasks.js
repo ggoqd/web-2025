@@ -41,7 +41,7 @@ const counter2 = createCounter();
 counter2(); // 1
 counter2(); // 2
 
-//Задание 2
+//Задание 3
 
 function spinWords(inputString) {
     return inputString.split(' ')
