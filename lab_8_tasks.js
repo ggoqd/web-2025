@@ -90,12 +90,10 @@ function findCommonPrefix(strings) {
     const firstStr = strings[0];
     let longestPrefix = "";
 
-    // Проверяем все возможные подстроки от 2 символов
     for (let i = 0; i < firstStr.length - 1; i++) {
         for (let j = i + 2; j <= firstStr.length; j++) {
             const candidate = firstStr.substring(i, j);
 
-            // Проверяем, содержится ли кандидат во всех строках
             const isCommon = strings.every(str => str.includes(candidate));
 
             if (isCommon && candidate.length > longestPrefix.length) {
