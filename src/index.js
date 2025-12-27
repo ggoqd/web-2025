@@ -159,7 +159,7 @@ const map = {
       cell.className = "cell";
     }
     // Очищаем массив с занятыми ячейками, при отображении сейчас его соберем заново.
-    //this.usedCells = [];
+    this.usedCells = [];
     // Отображаем змейку.
     console.log(snakePointsArray);
     snakePointsArray.forEach((point, idx) => {
@@ -239,7 +239,12 @@ const snake = {
   /**
    * Двигает змейку на один шаг.
    */
-  makeStep() {},
+  makeStep() {
+      const nextHeadPoint = this.getNextStepHeadPoint();
+      this.body.pop();
+      this.body.unshift(nextHeadPoint);
+      this.lastStepDirection = this.direction;
+  },
 
   /**
    * Добавляет в конец тела змейки копию последнего элемента змейки.
@@ -331,7 +336,9 @@ const food = {
    * @param {{x: int, y: int}} point Точка, для проверки соответствия точке еды.
    * @returns {boolean} true, если точки совпали, иначе false.
    */
-  isOnPoint(point) {},
+  isOnPoint(point) {
+      return this.x === point.x && this.y === point.y;
+  },
 };
 
 /**
@@ -557,7 +564,29 @@ const game = {
    * Отдает случайную не занятую точку на карте.
    * @return {{x: int, y: int}} Точку с координатами.
    */
-  getRandomFreeCoordinates() {},
+  getRandomFreeCoordinates() {
+      const freeCells = [];
+
+      for (let row = 0; row < this.config.getRowsCount(); row++) {
+          for (let col = 0; col < this.config.getColsCount(); col++) {
+              const point = { x: col, y: row };
+              // Если точка не занята змейкой и не является текущей едой
+              if (!this.snake.isOnPoint(point) &&
+                  !(this.food.x === col && this.food.y === row)) {
+                  freeCells.push(point);
+              }
+          }
+      }
+
+      // Если нет свободных ячеек, возвращаем null
+      if (freeCells.length === 0) {
+          return null;
+      }
+
+      // Возвращаем случайную свободную ячейку
+      const randomIndex = Math.floor(Math.random() * freeCells.length);
+      return freeCells[randomIndex];
+  },
 
   /**
    * Обработчик события нажатия на кнопку playButton.
@@ -567,7 +596,7 @@ const game = {
     if (this.status.isPlaying()) {
       this.stop();
     } else if (this.status.isStopped()) {
-      this.play();
+        this.play();
     }
   },
 
@@ -577,6 +606,7 @@ const game = {
   newGameClickHandler() {
     // Ставим игру в начальное положение.
     this.reset();
+    document.querySelector("#schet").textContent = "0";
   },
 
   /**
@@ -625,20 +655,45 @@ const game = {
    * @param {string} direction Направление, которое проверяем.
    * @returns {boolean} true, если направление можно назначить змейке, иначе false.
    */
-  canSetDirection(direction) {},
+  canSetDirection(direction) {
+      const lastDirection = this.snake.getLastStepDirection();
+
+      // Проверяем противоположные направления
+      const oppositeDirections = {
+          'up': 'down',
+          'down': 'up',
+          'left': 'right',
+          'right': 'left'
+      };
+
+      return direction !== '' && oppositeDirections[direction] !== lastDirection;
+  },
 
   /**
    * Проверяем произошла ли победа, судим по очкам игрока (длине змейки).
    * @returns {boolean} true, если игрок выиграл игру, иначе false.
    */
-  isGameWon() {},
+  isGameWon() {
+      return this.snake.bodyLenght >= this.config.getWinFoodCount();
+  },
 
   /**
    * Проверяет возможен ли следующий шаг.
    * @returns {boolean} true если следующий шаг змейки возможен, false если шаг не может быть совершен.
    */
-  canMakeStep() {},
+  canMakeStep() {
+      const nextHeadPoint = this.snake.getNextStepHeadPoint();
+
+      for (let i = 1; i < this.snake.body.length; i++) {
+          const bodyPoint = this.snake.body[i];
+          if (bodyPoint.x === nextHeadPoint.x && bodyPoint.y === nextHeadPoint.y) {
+              return false; // Столкновение с телом
+          }
+      }
+
+      return true;
+  },
 };
 
 // При загрузке страницы инициализируем игру.
-window.onload = game.init();
+game.init();
